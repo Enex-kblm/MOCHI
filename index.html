@@ -76,10 +76,13 @@ header {
   animation: riseIn .6s cubic-bezier(.34,1.4,.64,1) .05s forwards;
 }
 .icon {
-  font-size: 4rem; display: block; line-height: 1;
-  margin-bottom: 10px;
+  width: 88px; height: auto;
+  display: block;
+  margin: 0 auto 10px;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   animation: bob 3.5s ease-in-out infinite;
-  filter: drop-shadow(0 6px 14px rgba(240,96,144,.25));
+  filter: drop-shadow(0 5px 16px rgba(240,96,144,.3));
 }
 @keyframes bob {
   0%,100% { transform: translateY(0) rotate(-2deg); }
@@ -238,7 +241,7 @@ footer a:hover { color: var(--pink); }
 <div class="wrap">
 
   <header>
-    <span class="icon">🍡</span>
+    <img class="icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAD4CAYAAAA3vfm6AAADt0lEQVR4nO3dMW7UUBRA0QmCLg0t1aTJAlKyBLZEStgSS6DMAtJkKloaOoqwAeQv5efGnvE57cjJtzS5epKfnMMBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYqqu1D3Dujsfj89pn2LPT6eQ7vGHv1j4AcLkEBsgIDJARGCAjMEBGYICMwACZ3e8QzO6xPD0+vNZReIGb27up6+3RtEwwQEZggIzAABmBATICA2QEBsgIDJC5+B2A0Z7L9B7Lh49z1//9PXc9U0Z7NPZk5phggIzAABmBATICA2QEBsgIDJARGCBz9s/47blQsiczxwQDZAQGyAgMkBEYICMwQEZggIzAAJnNP8Nffc/FHgsL7MksM8EAGYEBMgIDZAQGyAgMkBEYICMwQGb1Z/T5ngusaO97MiYYICMwQEZggIzAABmBATICA2QEBsi8X/sAu/f159z13z+/zjle6tzPT8oEA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGe+DWdu5vw/l3M9PygQDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZ74OJ3dzeTV3/9PjwSidZx97vf+9MMEBGYICMwAAZgQEyAgNkBAbICAyQsQczabTnMbvHUf/8WXu/f5aZYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYION9MJNG7yO59P8LtPf7Z5kJBsgIDJARGCAjMEBGYICMwAAZgQEy9mBie9/j2Pv9750JBsgIDJARGCAjMEBGYICMwAAZgQEy29+D+fRj+fNfX97mHPA/o+/n9dscY6tMMEBGYICMwAAZgQEyAgNkBAbICAyQ2f4ezIg9GUqj7xeLTDBARmCAjMAAGYEBMgIDZAQGyAgMkLla+wAjx+Pxeenzpz/f5n6BPZl9m9xzubm+X/z8dDpt/m+sZIIBMgIDZAQGyAgMkBEYICMwQEZggMzZP6PP92RG7NFsW/w+F3swy0wwQEZggIzAABmBATICA2QEBsgIDJC5+Gf0q+/JcNHswSwzwQAZgQEyAgNkBAbICAyQERggIzBAZtfP6A+H8Z7MiD2a8zbaYxnZ+57LiAkGyAgMkBEYICMwQEZggIzAABmBATL/AFPBe5234tQiAAAAAElFTkSuQmCC" alt="MOCHI" />
     <h1>MOCHI<small>Web Flasher</small></h1>
   </header>
 
