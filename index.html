@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
 :root {
   --bg:      #fff4f8;
@@ -36,7 +37,6 @@ body {
   padding: 40px 20px;
 }
 
-/* bg blobs */
 body::before, body::after {
   content: '';
   position: fixed;
@@ -69,7 +69,6 @@ body::after {
   align-items: center; gap: 14px;
 }
 
-/* ── HEADER ── */
 header {
   text-align: center;
   margin-bottom: 4px;
@@ -106,7 +105,6 @@ h1 small {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ── CARD ── */
 .card {
   width: 100%;
   background: var(--surface);
@@ -125,23 +123,23 @@ h1 small {
 .card:nth-of-type(1) { animation-delay: .18s; }
 .card:nth-of-type(2) { animation-delay: .3s; }
 
-/* ── DEVICE ROW ── */
 .device-row {
   display: flex; align-items: center; gap: 14px;
   padding-bottom: 18px;
   margin-bottom: 18px;
   border-bottom: 2px dashed var(--border);
 }
-.device-thumb {
+.device-badge {
   width: 54px; height: 54px; flex-shrink: 0;
   border-radius: 16px;
   background: linear-gradient(135deg, var(--pinkL), #fde8f5);
   border: 2px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.7rem;
-  box-shadow: 0 3px 12px rgba(240,96,144,.15);
+  font-family: 'Baloo 2', sans-serif;
+  font-size: .75rem; font-weight: 800;
+  color: var(--pinkD);
+  letter-spacing: .04em;
 }
-.device-info {}
 .device-name {
   font-family: 'Baloo 2', sans-serif;
   font-size: 1.15rem; font-weight: 600;
@@ -162,7 +160,6 @@ h1 small {
   font-size: .65rem; font-weight: 800;
 }
 
-/* ── SPECS ── */
 .specs {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -170,7 +167,7 @@ h1 small {
   margin-bottom: 20px;
 }
 .spec {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 10px;
   padding: 10px 12px;
   background: var(--rose);
   border: 1.5px solid var(--border);
@@ -178,11 +175,15 @@ h1 small {
   transition: border-color .18s, background .18s;
 }
 .spec:hover { border-color: var(--border2); background: var(--pinkL); }
-.spec-icon { font-size: 1.1rem; flex-shrink: 0; }
+.spec-icon {
+  font-size: 1.2rem;
+  color: var(--pinkD);
+  flex-shrink: 0;
+  width: 20px; text-align: center;
+}
 .spec-val  { font-size: .78rem; font-weight: 800; color: var(--ink); }
 .spec-key  { font-size: .65rem; font-weight: 600; color: var(--muted); margin-top: 1px; }
 
-/* ── FLASH BUTTON AREA ── */
 .flash-wrap {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
@@ -205,14 +206,6 @@ esp-web-install-button::part(button),
   position: relative;
   overflow: hidden;
 }
-esp-web-install-button::part(button)::after,
-.btn-flash::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,.18) 0%, transparent 60%);
-  pointer-events: none;
-}
 esp-web-install-button::part(button):hover,
 .btn-flash:hover {
   transform: translateY(-3px) scale(1.02);
@@ -230,77 +223,6 @@ esp-web-install-button::part(button):active,
 }
 .flash-hint::before, .flash-hint::after { content: '·'; opacity: .4; }
 
-/* ── STEPS ── */
-.steps-label {
-  font-size: .68rem; font-weight: 800;
-  color: var(--muted); letter-spacing: .1em;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  display: flex; align-items: center; gap: 8px;
-}
-.steps-label::after {
-  content: '';
-  flex: 1; height: 1.5px;
-  background: var(--border);
-  border-radius: 2px;
-}
-
-.steps { display: flex; flex-direction: column; gap: 0; }
-
-.step {
-  display: flex; gap: 14px; align-items: stretch;
-  padding: 0;
-}
-
-/* connector line */
-.step-left {
-  display: flex; flex-direction: column; align-items: center;
-  flex-shrink: 0;
-}
-.step-n {
-  width: 28px; height: 28px; flex-shrink: 0;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--pink), #f090c0);
-  color: #fff;
-  font-family: 'Baloo 2', sans-serif;
-  font-size: .82rem; font-weight: 600;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 8px rgba(240,96,144,.3);
-  position: relative; z-index: 1;
-  transition: transform .18s, box-shadow .18s;
-}
-.step:hover .step-n {
-  transform: scale(1.12);
-  box-shadow: 0 4px 14px rgba(240,96,144,.4);
-}
-.step-line {
-  width: 2px; flex: 1;
-  background: linear-gradient(to bottom, var(--border2), var(--border));
-  border-radius: 2px;
-  margin: 3px 0;
-  min-height: 10px;
-}
-.step:last-child .step-line { display: none; }
-
-.step-body {
-  padding: 3px 0 16px;
-  flex: 1;
-}
-.step:last-child .step-body { padding-bottom: 0; }
-.step-title {
-  font-size: .82rem; font-weight: 800; color: var(--ink);
-  line-height: 1.3; margin-bottom: 2px;
-}
-.step-desc {
-  font-size: .7rem; color: var(--muted); font-weight: 600; line-height: 1.5;
-}
-.step-desc code {
-  background: var(--pinkL); border: 1px solid var(--border);
-  border-radius: 5px; padding: 1px 6px;
-  color: var(--pinkD); font-size: .67rem; font-family: monospace;
-}
-
-/* ── FOOTER ── */
 footer {
   font-size: .68rem; color: var(--muted);
   font-weight: 700; text-align: center;
@@ -315,21 +237,19 @@ footer a:hover { color: var(--pink); }
 <body>
 <div class="wrap">
 
-  <!-- HEADER -->
   <header>
     <span class="icon">🍡</span>
     <h1>MOCHI<small>Web Flasher</small></h1>
   </header>
 
-  <!-- CARD 1: Flash -->
   <div class="card">
 
     <div class="device-row">
-      <div class="device-thumb">🎮</div>
+      <div class="device-badge">MCH</div>
       <div class="device-info">
-        <div class="device-name">MOCHI Watch</div>
+        <div class="device-name">MOCHI</div>
         <div class="device-sub">
-          ESP32-C3 DevKit
+          ESP32-C3 SuperMini
           <span class="dot-ver">v1.0.0</span>
         </div>
       </div>
@@ -337,28 +257,28 @@ footer a:hover { color: var(--pink); }
 
     <div class="specs">
       <div class="spec">
-        <span class="spec-icon">🖥️</span>
+        <i class="ti ti-device-desktop spec-icon" aria-hidden="true"></i>
         <div>
           <div class="spec-val">ST7789</div>
           <div class="spec-key">Display Driver</div>
         </div>
       </div>
       <div class="spec">
-        <span class="spec-icon">📐</span>
+        <i class="ti ti-grid-dots spec-icon" aria-hidden="true"></i>
         <div>
           <div class="spec-val">240 × 240</div>
           <div class="spec-key">Resolusi</div>
         </div>
       </div>
       <div class="spec">
-        <span class="spec-icon">💾</span>
+        <i class="ti ti-database spec-icon" aria-hidden="true"></i>
         <div>
           <div class="spec-val">LittleFS</div>
           <div class="spec-key">Filesystem</div>
         </div>
       </div>
       <div class="spec">
-        <span class="spec-icon">⚡</span>
+        <i class="ti ti-activity spec-icon" aria-hidden="true"></i>
         <div>
           <div class="spec-val">115200</div>
           <div class="spec-key">Baud Rate</div>
@@ -368,7 +288,10 @@ footer a:hover { color: var(--pink); }
 
     <div class="flash-wrap">
       <esp-web-install-button manifest="manifest.json">
-        <button slot="activate" class="btn-flash">⚡ Flash Firmware</button>
+        <button slot="activate" class="btn-flash">
+          <i class="ti ti-bolt" aria-hidden="true"></i>
+          Flash Firmware
+        </button>
       </esp-web-install-button>
       <p class="flash-hint">Colok MOCHI via USB-C sebelum klik</p>
     </div>
