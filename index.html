@@ -7,7 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 <style>
 :root {
   --bg:      #fff4f8;
@@ -24,7 +23,6 @@
   --shadowLg:0 16px 48px rgba(240,96,144,.18);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 body {
   font-family: 'Quicksand', sans-serif;
   background: var(--bg);
@@ -36,7 +34,6 @@ body {
   justify-content: center;
   padding: 40px 20px;
 }
-
 body::before, body::after {
   content: '';
   position: fixed;
@@ -59,16 +56,14 @@ body::after {
 }
 @keyframes blobDrift {
   from { transform: translate(0,0) scale(1); }
-  to   { transform: translate(30px, 20px) scale(1.1); }
+  to   { transform: translate(30px,20px) scale(1.1); }
 }
-
 .wrap {
   position: relative; z-index: 1;
   width: 100%; max-width: 420px;
   display: flex; flex-direction: column;
   align-items: center; gap: 14px;
 }
-
 header {
   text-align: center;
   margin-bottom: 4px;
@@ -102,12 +97,10 @@ h1 small {
   text-transform: uppercase;
   margin-top: 5px;
 }
-
 @keyframes riseIn {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
 .card {
   width: 100%;
   background: var(--surface);
@@ -119,13 +112,8 @@ h1 small {
   animation: riseIn .55s cubic-bezier(.34,1.3,.64,1) forwards;
   transition: box-shadow .25s, transform .25s;
 }
-.card:hover {
-  box-shadow: var(--shadowLg);
-  transform: translateY(-2px);
-}
+.card:hover { box-shadow: var(--shadowLg); transform: translateY(-2px); }
 .card:nth-of-type(1) { animation-delay: .18s; }
-.card:nth-of-type(2) { animation-delay: .3s; }
-
 .device-row {
   display: flex; align-items: center; gap: 14px;
   padding-bottom: 18px;
@@ -162,7 +150,6 @@ h1 small {
   color: var(--pinkD);
   font-size: .65rem; font-weight: 800;
 }
-
 .specs {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -179,18 +166,12 @@ h1 small {
 }
 .spec:hover { border-color: var(--border2); background: var(--pinkL); }
 .spec-icon {
-  font-size: 1.2rem;
-  color: var(--pinkD);
-  flex-shrink: 0;
-  width: 20px; text-align: center;
+  color: var(--pinkD); flex-shrink: 0;
+  width: 20px; height: 20px;
 }
-.spec-val  { font-size: .78rem; font-weight: 800; color: var(--ink); }
-.spec-key  { font-size: .65rem; font-weight: 600; color: var(--muted); margin-top: 1px; }
-
-.flash-wrap {
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-}
-
+.spec-val { font-size: .78rem; font-weight: 800; color: var(--ink); }
+.spec-key { font-size: .65rem; font-weight: 600; color: var(--muted); margin-top: 1px; }
+.flash-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
 esp-web-install-button::part(button),
 .btn-flash {
   display: inline-flex; align-items: center; gap: 9px;
@@ -215,17 +196,7 @@ esp-web-install-button::part(button):hover,
   box-shadow: 0 10px 32px rgba(240,96,144,.5), 0 4px 10px rgba(240,80,136,.25);
 }
 esp-web-install-button::part(button):active,
-.btn-flash:active {
-  transform: scale(.97);
-  box-shadow: 0 3px 12px rgba(240,96,144,.3);
-}
-
-.flash-hint {
-  font-size: .72rem; color: var(--muted); font-weight: 700;
-  display: flex; align-items: center; gap: 5px;
-}
-.flash-hint::before, .flash-hint::after { content: '·'; opacity: .4; }
-
+.btn-flash:active { transform: scale(.97); box-shadow: 0 3px 12px rgba(240,96,144,.3); }
 footer {
   font-size: .68rem; color: var(--muted);
   font-weight: 700; text-align: center;
@@ -246,10 +217,9 @@ footer a:hover { color: var(--pink); }
   </header>
 
   <div class="card">
-
     <div class="device-row">
       <div class="device-badge">MCH</div>
-      <div class="device-info">
+      <div>
         <div class="device-name">MOCHI</div>
         <div class="device-sub">
           ESP32-C3 SuperMini
@@ -260,49 +230,36 @@ footer a:hover { color: var(--pink); }
 
     <div class="specs">
       <div class="spec">
-        <i class="ti ti-device-desktop spec-icon" aria-hidden="true"></i>
-        <div>
-          <div class="spec-val">ST7789</div>
-          <div class="spec-key">Display Driver</div>
-        </div>
+        <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        <div><div class="spec-val">ST7789</div><div class="spec-key">Display Driver</div></div>
       </div>
       <div class="spec">
-        <i class="ti ti-grid-dots spec-icon" aria-hidden="true"></i>
-        <div>
-          <div class="spec-val">240 × 240</div>
-          <div class="spec-key">Resolusi</div>
-        </div>
+        <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="5" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="19" cy="5" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="19" r="1"/><circle cx="12" cy="19" r="1"/><circle cx="19" cy="19" r="1"/></svg>
+        <div><div class="spec-val">240 × 240</div><div class="spec-key">Resolusi</div></div>
       </div>
       <div class="spec">
-        <i class="ti ti-database spec-icon" aria-hidden="true"></i>
-        <div>
-          <div class="spec-val">LittleFS</div>
-          <div class="spec-key">Filesystem</div>
-        </div>
+        <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+        <div><div class="spec-val">LittleFS</div><div class="spec-key">Filesystem</div></div>
       </div>
       <div class="spec">
-        <i class="ti ti-activity spec-icon" aria-hidden="true"></i>
-        <div>
-          <div class="spec-val">115200</div>
-          <div class="spec-key">Baud Rate</div>
-        </div>
+        <svg class="spec-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <div><div class="spec-val">115200</div><div class="spec-key">Baud Rate</div></div>
       </div>
     </div>
 
     <div class="flash-wrap">
       <esp-web-install-button manifest="manifest.json">
         <button slot="activate" class="btn-flash">
-          <i class="ti ti-bolt" aria-hidden="true"></i>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           Flash Firmware
         </button>
       </esp-web-install-button>
     </div>
-
   </div>
 
   <footer>
     Powered by <a href="https://esphome.github.io/esp-web-tools/" target="_blank">ESP Web Tools</a>
-    &nbsp;·&nbsp; <a href="https://github.com/" target="_blank">GitHub</a><br>
+    &nbsp;·&nbsp; <a href="https://github.com/Enex-kblm/MOCHI" target="_blank">GitHub</a><br>
     ✦ Made with love ✦
   </footer>
 
